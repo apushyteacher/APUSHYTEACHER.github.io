@@ -1,6 +1,3 @@
 p {color: red ;}
 strong {color: red ;}
-body {
-    background-image: url(images/WaterlooStation.jpg) ;
-    background-repeat: no-repeat ;
-}
+body {background-image: url(images/WaterlooStation.jpg) ; background-repeat: no-repeat ;}

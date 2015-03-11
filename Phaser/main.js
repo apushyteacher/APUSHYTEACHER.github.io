@@ -5,7 +5,7 @@ var main = {
         // That's where we load the game's assets
     game.load.image("paddle", "assets/paddle.png");
     game.load.image("brick", "assets/brick.png");
-    game.load.image("ball", "assets/ball.png");
+    game.load.image("ball", "assets/bossman.jpg");
                     },
 
   create: function() { 

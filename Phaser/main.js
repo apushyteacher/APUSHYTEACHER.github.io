@@ -4,16 +4,16 @@ var main = {
     // This function will be executed at the beginning     
         // That's where we load the game's assets
     game.load.image("paddle", "assets/paddle.png");
-      game.load.image("brick", "assets/brick.png");
+    game.load.image("brick", "assets/brick.png");
     game.load.image("ball", "assets/ball.png");
-  },
+                    },
 
   create: function() { 
     // This function is called after the preload function     
         // Here we set up the game, display sprites, etc. 
         game.physics.startSystem(Phaser.Physics.ARCADE);
-        this.cursor = game.input.keyboard.createCursorKeys();
-        this.paddle = game.add.sprite(200, 400, "paddle");
+            this.cursor = game.input.keyboard.createCursorKeys();
+            this.paddle = game.add.sprite(200, 400, "paddle");
         game.physics.arcade.enable(this.paddle);
         this.paddle.body.immovable = true;
       this.bricks = game.add.group();
@@ -21,8 +21,8 @@ var main = {
       for (var i = 0; i < 5; i++)
           for (var j = 0; j < 5; j++)
               game.add.sprite(55+i*60, 55+j*35, "brick", 0, this.bricks);
-      this.bricks.setAll("body.immovable", true);
-      this.ball = game.add.sprite9200, 300, "ball");
+        this.bricks.setAll("body.immovable", true);
+      this.ball = game.add.sprite(200, 300, "ball");
       game.physics.arcade.enable(this.ball);
       this.ball.body.velocity.x = 200;
       this.ball.body.velocity.y = 200;
@@ -40,8 +40,16 @@ var main = {
           this.paddle.body.velocity.x = -350;
       else
           this.paddle.body.velocity.x = 0;
+      game.physics.arcade.collide(this.paddle, this.ball);
+      game.physics.arcade.collide(this.ball, this.bricks, this.hit, null, this);
   },
+hit: function(ball, brick)  {
+    brick.kill();
+}
+
 };
+
+
 
 // Initialize Phaser, and start our 'main' state 
 var game = new Phaser.Game(400, 450, Phaser.AUTO, 'gameDiv');
